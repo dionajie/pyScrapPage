@@ -9,14 +9,14 @@ from BeautifulSoup import BeautifulSoup
 	Mail : mail@dionajie.com
 
 
-	# Depedencies
+	# Package to install
 	pip install urllib2
 	pip install validators
 	pip install BeautifulSoup
 	pip install url
 
 
-	# Bug (Update Soon!)
+	# TO DO
 	- download image in inline style
 	- download images in css
 	- download font in css or any files related
