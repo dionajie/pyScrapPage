@@ -1,11 +1,8 @@
 # pyScrapPage
-Scaping Single Page Website (include html page, css, js, images)
-
-### Version
-1.0
+Scraping Single Page Website (include html page, css, js and images)
 
 ### Installation
-Download this repository and then install depedencies
+Download this repository and then install package
 ```  sh
 pip install urllib2
 pip install validators
@@ -27,12 +24,12 @@ filenamePage = 'index'
 pathfolder = 'startbootstrap/'
 ```
 
-Then Go to your folder path and this line to terminal
+Then go to your folder path and run this command in terminal
 ``` sh
 python -u scraping.py
 ```
 
-### Bug (Update Soon)
+### TO DO
 * download image in inline style
 * download images in css file
 * download font in css file or any files related
