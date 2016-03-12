@@ -52,27 +52,33 @@ def getInsideCSS(path):
 	with open(path, "r") as f:
 		content = f.read()
 
-	path = path.split('/', -1)[:-1]
-	path = '/'.join(path)
+	path = '/'.join(path.split('/', -1)[:-1])
 	path = path.split('/', 1)[1]
+	pathbefore = '/'.join(path.split('/', -1)[:-1])
 	print path
 
 	match =  re.findall('url\((.*?)\)',content)
 	for row in match:
-		print row
-		if '..' in row:
-			rowAfter = row.split('/', 1)[-1]
+		#ex : row = '../fonts/ionicons.svg#Ionicons'
+		if not validators.url(row):
+			if '..' in row:
+				rowAfter = row.split('/', 1)[-1]
+				rowAfter = pathbefore+'/'+rowAfter
+				
+			else:
+				rowAfter = path+'/'+row
 			rowAfter = rowAfter.replace("'","")
-		else:
-			rowAfter = path+'/'+row
-			rowAfter = rowAfter.replace("'","")
-		rowAfter = rowAfter.split('?', 1)[0]
-		print rowAfter
-		download(rowAfter)
+			rowAfter = rowAfter.replace('"','')
+			rowAfter = rowAfter.split('#', 1)[0]
+			rowAfter = rowAfter.split('?', 1)[0]
+			print rowAfter
+			download(rowAfter)
 
 
 def getCSS(soup):
 	# get css
+	exList = []
+	print exList
 	print "\n css------"
 	for css in soup.findAll("link"):
 		if "stylesheet" in css.get("rel", []):
@@ -80,7 +86,8 @@ def getCSS(soup):
 				print css['href']
 				result = download(css['href'])
 				print result
-				getInsideCSS(result)
+				if not any(ext in result for ext in exList):
+					getInsideCSS(result)
 		# exceot stylesheet
 		elif(css.get("rel", [])):
 			result = download(css['href'])
@@ -146,7 +153,7 @@ def scrapPage(url,filenamePage,pathfolder):
 
 	# get content page
 	soup = BeautifulSoup(webContent)
-	# getCSS(soup)
+	getCSS(soup)
 	getJS(soup)
 	getImages(soup)
 	getFontAwesome(pathfolder)
@@ -161,7 +168,7 @@ def scrapPage(url,filenamePage,pathfolder):
 
 
 if __name__ == '__main__':
-	url = 'http://premiumlayers.com/demos/vcard/' #URL Page
+	url = 'http://code-pages.com/html/Revalia/' #URL Page
 	filenamePage = 'index'	# HTML File name
-	pathfolder = 'vcard/'	# Folder to save files
+	pathfolder = 'Revalia/'	# Folder to save files
 	scrapPage(url,filenamePage,pathfolder)
