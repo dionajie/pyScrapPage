@@ -1,8 +1,10 @@
 # pyScrapPage
-Scraping Single Page Website (include html page, css, js and images)
+Scraping HTML Website Template (include css, js, images) and restructurize folders like original one
 
 ### Installation
-Download this repository and then install package
+Download this repository  ``` git clone https://github.com/dionajie/pyScrapPage.git ```
+
+install package using pip
 ```  sh
 pip install urllib2
 pip install validators
@@ -12,12 +14,14 @@ pip install url
 ```
 
 ### How to
+open scraping.py and set variables 
+
 ``` sh
-url = path/to/url
+url = 'path/to/url'
 filenamePage = 'your page filename'
-pathfolder = path/to/your/folder
+pathfolder = 'path/to/your/folder'
 ````
-example
+Example:
 ``` sh
 url = 'http://blackrockdigital.github.io/startbootstrap-creative/' 
 filenamePage = 'index'	
@@ -31,8 +35,6 @@ python -u scraping.py
 
 ### TO DO
 * download image in inline style
-* download images in css file
-* download font in css file or any files related
 
 ### Warning
 Use this app wisely. 
