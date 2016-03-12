@@ -18,8 +18,6 @@ from BeautifulSoup import BeautifulSoup
 
 	# TO DO
 	- download image in inline style
-	- download images in css
-	- download font in css or any files related
 
 	# Warning
 	Use this app wisely. 
