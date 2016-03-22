@@ -1,5 +1,6 @@
 # pyScrapPage
-Scraping HTML Website Template (include css, js, images) and restructurize folders like original one
+Scraping HTML Website Template (include css, js, images) and restructurize folders like original one.
+PyScrapPage is one of apps on challenge list i made. You can read it on [my blog].
 
 ### Installation
 Download this repository  ``` git clone https://github.com/dionajie/pyScrapPage.git ```
@@ -39,3 +40,6 @@ python -u scraping.py
 ### Warning
 Use this app wisely. 
 It is your responsibility to use this app
+
+
+[my blog] : <https://blog.dionajie.com/python-apps-challenge-1bc71acbdc5f#.tgqxlbw31>
